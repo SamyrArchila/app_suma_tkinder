@@ -1,109 +1,152 @@
-# se importala libreria tkinter 
+# Se importa la libreria tkinder con todas sus funciones 
+import tkinter
 from tkinter import *
-# -----------------------------
-# funciones de la app 
-# -----------------------------
+from tkinter import messagebox
 
 
-# -----------------------------
-# ve ntana principal de la app
-# -----------------------------
 
-# se declara una variable  llamada ventana_principal, que anquiere las caracteristicas de un juego
 
-ventana_principal= Tk()
+# ----------------------
+# Funciones de la app
+# ----------------------
 
-# Titulo de ventana 
-ventana_principal.title("David macias ")
+def sumar():
+    pass
+    c = int(a.get()) + int(b.get())
+    t_resultados.insert(INSERT, "La suma de " + a.get() + " + " + b.get() + " casi siempre es " + str(c) + "\n")
 
-# Tamaño de la ventana 
+def borrar():
+    pass
+    messagebox.showinfo("Suma 1.0", "Los datos seran borrados...")
+    a.set("")
+    b.set("")
+    t_resultados.delete("1.0","end")
+
+def salir():
+    messagebox.showinfo("Suma 1.0", "La app cerrara...")
+    ventana_principal.destroy()
+
+
+
+# ---------------------------
+# Ventana principal de la app
+# ---------------------------
+
+# Se declara una variable llamada ventana principal, que adquiere las caracteristicas de un objeto de tipo Tk()
+ventana_principal = Tk()
+
+# Titulo de la ventana
+ventana_principal.title("Samyr Alejandro Archila Guiza")
+
+# Tamaño de la ventana
 ventana_principal.geometry("800x500")
 
-# deshabilita boton de minimizar la ventana 
+# Deshabilitar boton maximizar de la ventana
 ventana_principal.resizable(0,0)
 
-# color de fondo de la ventana 
-ventana_principal.config(bg= "gray")
+# color de fondo de la ventana
+ventana_principal.config(bg="black")
 
-#--------------------------
-# variables globales
-#--------------------------
+# ----------------------------
+# Variables globales
+# ----------------------------
 a = StringVar()
 b = StringVar()
 c = IntVar()
-# -------------------------
-# frame 1 entrada de datos
-# -------------------------
 
-frame_1  = Frame(ventana_principal)
-frame_1.config(bg = "ivory2", width=780,height=240)
-frame_1.place(x=10, y=10)
+# ----------------------------
+# Frame 1
+# ----------------------------
 
-#etiqueta para el titulo de la app 
-titulo= Label(frame_1,text="colegio San Jose de Guanenta")
-titulo.config(bg="yellow", fg="blue", font= ("arial", 16))
-titulo.place(x=250,y=10)
+frame_1 = Frame(ventana_principal)
+frame_1.config(bg="ivory2", width=780, height=240)
+frame_1.place(x=10,y=10)
 
-# imag-en-Logo
-logo= PhotoImage(file="img/btn-suma.png")
-label_logo = Label (frame_1,image=logo)
-label_logo.place(x=10,y=10)
+# Imagen - logo de la app
+logo = PhotoImage(file="img/btn-suma.png")
+label_logo = Label(frame_1, image=logo)
+label_logo.place(x=10, y=10)
 
-#etiqueta para subtitulo 1 de la app
-subtitulo1= Label(frame_1,text ="especialidad en sistemas")
-subtitulo1.config(bg="yellow", fg="blue", font= ("Arial",12))
-subtitulo1.place(x=300, y=50)
+# Etiqueta para el titulo de la app
+titulo = Label(frame_1, text="Colegio San Jose De Guanenta")
+titulo.config(bg="yellow", fg="blue", font=("Arial", 16))
+titulo.place(x=390,y=10)
 
-# etiqueta para subtitulo 2de la app
-subtitulo2= Label(frame_1,text ="Suma de dos enteros")
-subtitulo2.config(bg="ivory2", fg="blue", font= ("Arial",15))
-subtitulo2.place(x=300, y=70)
+# Etiqueta para subtitulo 1 de la app
+subtitulo1 = Label(frame_1, text="Especialidad a Sistemas")
+subtitulo1.config(bg="yellow", fg="blue", font=("Arial", 12))
+subtitulo1.place(x=390, y=40)
 
-# etiqueta para el primer valor
-label_a= Label(frame_1,text ="a =")
-label_a.config(bg="ivory2", fg="blue", font= ("Arial",20))
-label_a.place(x=300, y=120)
+# Etiqueta para subtitulo 2 de la app
+subtitulo2 = Label(frame_1, text = "SUMA DE DOS ENTEROS")
+subtitulo2.config(bg="ivory2", fg="blue", font=("Arial", 15), anchor=CENTER)
+subtitulo2.place(x=390, y=70)
 
-# etiqueta para el segundo valor
-label_a= Label(frame_1,text ="b =")
-label_a.config(bg="ivory2", fg="blue", font= ("Arial",20))
-label_a.place(x=300, y=160) 
+# Etiqueta para el primer valor - a
+label_a = Label(frame_1, text = "a =")
+label_a.config(bg="ivory2", fg="blue", font=("Arial", 20), anchor=CENTER)
+label_a.place(x=390, y=120)
 
-# Entry
-
-entry_a= Entry(frame_1, width=4, textvariable=a)
-entry_a.config (font=("Arial", 20), justify=CENTER)
+# Entry para el primer valor - a
+entry_a = Entry(frame_1, width=4, textvariable=a)
+entry_a.config(font=("Arial", 20), justify=CENTER)
 entry_a.focus_set()
 entry_a.place(x=487, y=120)
 
-entry_b= Entry(frame_1, width=4, textvariable=b)
-entry_b.config (font=("Arial", 20), justify=CENTER)
-entry_b.place(x=487, y=160)
+# Etiqueta para el segundo valor - b
+label_b = Label(frame_1, text = "b =")
+label_b.config(bg="ivory2", fg="blue", font=("Arial", 20), anchor=CENTER)
+label_b.place(x=585, y=120)
+
+# Entry para el segundo valor - b
+entry_b = Entry(frame_1, width=4, textvariable=b)
+entry_b.config(font=("Arial", 20), justify=CENTER)
+entry_b.place(x=682, y=120)
+
+# ----------------------------
+# Frame 2 - Operaciones
+# ----------------------------
+
+frame_2 = Frame(ventana_principal)
+frame_2.config(bg="ivory2", width=780, height=120)
+frame_2.place(x=10,y=260)
+
+# Boton para sumar
+img_bt_sumar = PhotoImage(file="img/boton_sumar.png")
+bt_sumar = Button(frame_2, image = img_bt_sumar, width=105, height=105, command=sumar)
+#bt_sumar = Button(frame_2, text="Sumar", width=10)
+bt_sumar.place(x=116, y=7)
+
+# Boton para borrar entradas y resultados
+img_bt_borrar = PhotoImage(file="img/boton_borrar.png")
+bt_borrar = Button(frame_2, image = img_bt_borrar, width=105, height=105, command=borrar)
+#bt_sumar = Button(frame_2, text="Sumar", width=10)
+bt_borrar.place(x=337, y=7)
+
+# Boton para  salir la aplicacion
+img_bt_salir = PhotoImage(file="img/boton_salir.png")
+bt_salir = Button(frame_2, image = img_bt_salir, width=105, height=105, command=salir)
+#bt_sumar = Button(frame_2, text="Sumar", width=10)
+bt_salir.place(x=558, y=7)
 
 
-# -----------------------------
-# frame 2 panel de operaciones
-# -----------------------------
+
+
+# ----------------------------
+# Frame 3 - Resultados
+# ----------------------------
+
+
+frame_3 = Frame(ventana_principal)
+frame_3.config(bg="ivory2", width=780, height=100)
+frame_3.place(x=10,y=390)
+
+# Area de texto
+t_resultados = Text(frame_3, width=50, height=3)
+t_resultados.config(bg="green", fg="white", font=("Courier", 20))
+t_resultados.pack()
 
 
 
-frame_2  = Frame(ventana_principal)
-frame_2.config(bg = "ivory2", width=780,height=120)
-frame_2.place(x=10, y=260)
-
-# ----------------------
-# boton para sumar 
-# ----------------------
-bt_sumar= Button(frame_2, Text"sumar", width=10, height=10)
-
-# -----------------------------
-# frame 3 Resultados
-# -----------------------------
-
-frame_3  = Frame(ventana_principal)
-frame_3.config(bg = "ivory2", width=780,height=120)
-frame_3.place(x=10, y=390)
-
-
-# metodo principal que despliega la ventana en pantalla 
+# Metodo principal que despliega la ventana en pantalla
 ventana_principal.mainloop()
